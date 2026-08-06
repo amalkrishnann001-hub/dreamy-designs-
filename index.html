@@ -1,342 +1,545 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dreamy Designs | Customized Gifts & Printing</title>
+<meta name="description" content="Dreamy Designs - Customized frames, gifts, printing and creative services.">
+<style>
+:root{
+  --primary:#6c8ff5;
+  --primary-dark:#4d6fd8;
+  --soft:#eef4ff;
+  --text:#202638;
+  --muted:#697386;
+  --card:#ffffff;
+  --border:#e5e9f2;
+  --shadow:0 10px 30px rgba(40,55,90,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f8faff;
+  color:var(--text);
+  line-height:1.55;
+}
+button,a{font:inherit}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav{
+  max-width:1150px;margin:auto;padding:10px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:15px;
+}
+.logo-wrap{display:flex;align-items:center;gap:10px;font-weight:800}
+.logo{
+  width:48px;height:48px;border-radius:12px;object-fit:cover;
+  background:var(--soft);border:1px solid var(--border);
+}
+.brand{font-size:19px}
+.nav-links{display:flex;gap:18px;font-size:14px;font-weight:700}
+.nav-links a:hover{color:var(--primary-dark)}
+.hero{
+  max-width:1150px;margin:0 auto;padding:38px 18px 20px;
+}
+.hero-box{
+  border-radius:26px;padding:38px 25px;
+  background:linear-gradient(135deg,#eef4ff,#ffffff);
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+.hero h1{font-size:clamp(30px,6vw,52px);margin-bottom:10px}
+.hero p{color:var(--muted);max-width:650px;margin:0 auto 20px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  border:0;border-radius:12px;padding:12px 18px;
+  background:var(--primary);color:white;font-weight:800;cursor:pointer;
+}
+.btn:hover{background:var(--primary-dark)}
+.btn.secondary{background:#fff;color:var(--primary-dark);border:1px solid #d9e2ff}
+.section{max-width:1150px;margin:auto;padding:32px 18px}
+.section-title{text-align:center;margin-bottom:20px}
+.section-title h2{font-size:28px}
+.section-title p{color:var(--muted);font-size:14px}
 
-    <title>Dreamy Designs | Handmade Crafts</title>
+/* TOP SELLING MARQUEE */
+.marquee-shell{
+  overflow:hidden;border-radius:18px;background:#fff;border:1px solid var(--border);
+  box-shadow:var(--shadow);padding:12px 0;
+}
+.marquee{
+  display:flex;width:max-content;animation:scroll 28s linear infinite;
+}
+.marquee:hover{animation-play-state:paused}
+.marquee-track{display:flex;gap:14px;padding-right:14px}
+.sell-card{
+  width:220px;flex:0 0 220px;border:1px solid var(--border);
+  border-radius:15px;overflow:hidden;background:white;
+}
+.sell-card img,.sell-card video{width:100%;height:145px;object-fit:cover;background:#eaf0ff}
+.sell-info{padding:10px}
+.sell-info b{display:block}
+.sell-info span{color:var(--primary-dark);font-weight:800}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-    <link rel="stylesheet" href="style.css">
+/* PRODUCTS */
+.filters{
+  display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:22px;
+}
+.filter{
+  border:1px solid var(--border);background:#fff;color:var(--text);
+  border-radius:999px;padding:8px 13px;cursor:pointer;font-weight:700;font-size:13px;
+}
+.filter.active,.filter:hover{background:var(--primary);color:white;border-color:var(--primary)}
+.grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+}
+.product{
+  background:var(--card);border:1px solid var(--border);border-radius:17px;
+  overflow:hidden;box-shadow:0 6px 20px rgba(40,55,90,.06);
+  transition:.2s;cursor:pointer;
+}
+.product:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.product-img{
+  width:100%;height:190px;object-fit:cover;background:#edf2ff;
+}
+.product-body{padding:14px}
+.product-body h3{font-size:16px;margin-bottom:4px}
+.price{font-size:18px;font-weight:900;color:var(--primary-dark)}
+.rating{font-size:13px;color:#e49b00;margin-top:5px}
+.small-note{font-size:12px;color:var(--muted);margin-top:5px}
+
+/* INSTAGRAM */
+.insta-box{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center;
+  background:linear-gradient(135deg,#fff,#f1f5ff);
+  border:1px solid var(--border);border-radius:22px;padding:24px;
+}
+.insta-preview{
+  min-height:220px;border-radius:17px;display:flex;align-items:center;justify-content:center;
+  background:#edf2ff;font-size:48px;
+}
+.insta-box h2{margin-bottom:8px}.insta-box p{color:var(--muted);margin-bottom:15px}
+
+/* FOOTER */
+footer{background:#171d2c;color:#fff;margin-top:35px}
+.footer-inner{max-width:1150px;margin:auto;padding:30px 18px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+footer p,footer a{color:#b9c2d6;font-size:14px}
+footer h3{margin-bottom:8px}
+.copyright{text-align:center;border-top:1px solid #30384b;padding:12px;color:#9da8bd;font-size:12px}
+
+/* DETAIL PAGE */
+#detailPage{display:none}
+.detail{
+  max-width:1100px;margin:auto;padding:28px 18px;
+}
+.back{margin-bottom:18px;display:inline-flex}
+.detail-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:28px;
+}
+.gallery-main{
+  background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;
+}
+.gallery-main img{width:100%;height:420px;object-fit:cover;background:#edf2ff}
+.thumbs{display:flex;gap:8px;padding:10px;overflow-x:auto}
+.thumb{width:78px;height:62px;object-fit:cover;border-radius:8px;border:2px solid transparent;cursor:pointer}
+.thumb.active{border-color:var(--primary)}
+.detail-info{
+  background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px;
+}
+.detail-info h1{font-size:30px;margin-bottom:5px}
+.detail-price{font-size:25px;color:var(--primary-dark);font-weight:900;margin:10px 0}
+.detail-info p{color:var(--muted);white-space:pre-line}
+.order-row{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.whatsapp{background:#25d366}
+.whatsapp:hover{background:#1fb85a}
+.review-box{
+  margin-top:22px;border-top:1px solid var(--border);padding-top:20px;
+}
+.review-form{display:grid;gap:9px;margin-top:12px}
+.review-form input,.review-form textarea,.review-form select{
+  width:100%;border:1px solid var(--border);border-radius:10px;padding:11px;
+  outline:none;background:#fbfcff;
+}
+.review-form textarea{min-height:85px;resize:vertical}
+.reviews{display:grid;gap:10px;margin-top:16px}
+.review{
+  border:1px solid var(--border);border-radius:12px;padding:12px;background:#fafbff;
+}
+.review strong{display:block}.review-stars{color:#e49b00}
+
+/* RESPONSIVE */
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){
+  .nav-links{display:none}
+  .grid{grid-template-columns:repeat(2,1fr);gap:11px}
+  .product-img{height:160px}
+  .insta-box,.detail-grid,.footer-inner{grid-template-columns:1fr}
+  .gallery-main img{height:330px}
+}
+@media(max-width:430px){
+  .grid{grid-template-columns:1fr 1fr}
+  .product-body{padding:11px}.product-body h3{font-size:14px}
+  .price{font-size:16px}
+  .hero-box{padding:28px 17px}
+}
+</style>
 </head>
 
 <body>
-<!-- Gallery Popup -->
-<div id="galleryModal" class="gallery-modal">
-    <span class="close-gallery" onclick="closeGallery()">×</span>
 
-    <div class="gallery-content">
-        <h2 id="galleryTitle">Product Gallery</h2>
-
-        <div class="gallery-images" id="galleryImages"></div>
-    </div>
-</div>
-
+<!-- HOME PAGE -->
+<div id="homePage">
 <header>
-    <div class="logo">🌸 Dreamy Designs</div>
-
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+  <nav class="nav">
+    <a href="#" class="logo-wrap" onclick="goHome()">
+      <img src="images/dreamy-logo.png" class="logo" alt="Dreamy Designs logo">
+      <span class="brand">Dreamy Designs</span>
+    </a>
+    <div class="nav-links">
+      <a href="#topSelling">Top Selling</a>
+      <a href="#products">Products</a>
+      <a href="#instagram">Instagram</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 </header>
 
-
-<section id="home" class="hero">
-
-    <div class="hero-text">
-        <p class="small-title">✨ Handmade with Love ✨</p>
-
-        <h1>Make Every Moment<br>
-            <span>Beautiful & Special</span>
-        </h1>
-
-        <p>
-            Cute handmade frames, gifts and cards
-            created specially for your beautiful moments.
-        </p>
-
-        <a href="#products" class="main-button">
-            Explore Products 💕
-        </a>
-    </div>
-
+<main>
+<section class="hero">
+  <div class="hero-box">
+    <h1>Dreamy Designs ✨</h1>
+    <p>Customized frames, gifts, printing and creative works — made specially for you.</p>
+    <a class="btn" href="#products">Explore Products</a>
+  </div>
 </section>
 
+<section class="section" id="topSelling">
+  <div class="section-title">
+    <h2>🔥 Top Selling Products</h2>
+    <p>Swipe or watch the products move automatically. Tap a product to view details.</p>
+  </div>
 
-<section id="products">
-
-    <div class="section-title">
-        <p>Our Collection</p>
-        <h2>Made Just For You 💖</h2>
+  <div class="marquee-shell">
+    <div class="marquee">
+      <div class="marquee-track" id="marqueeTrack1"></div>
+      <div class="marquee-track" id="marqueeTrack2"></div>
     </div>
-
-
-    <div class="products-container">
-
-        <!-- Product 1 -->
-        <div class="product-card">
-
-            <div class="product-image">
-                🖼️
-            </div>
-            <button onclick="openGallery('frames')">View Gallery</button>
-
-            <h3>Mini Frame</h3>
-
-            <p>Beautiful handmade mini frame for special memories.</p>
-
-            <div class="price">₹299</div>
-
-            <button onclick="orderProduct('Mini Frame', 299)">
-                Order Now 💌
-            </button>
-
-        </div>
-
-
-        <!-- Product 2 -->
-        <div class="product-card">
-
-            <div class="product-image">
-                🖼️
-            </div>
-            <button onclick="openGallery('frames')">View Gallery</button>
-
-            <h3>A3 Frame</h3>
-
-            <p>Elegant handmade A3 frame for your favourite memories.</p>
-
-            <div class="price">₹699</div>
-
-            <button onclick="orderProduct('A3 Frame', 699)">
-                Order Now 💌
-            </button>
-
-        </div>
-
-
-        <!-- Product 3 -->
-        <div class="product-card">
-
-            <div class="product-image">
-                🖼️
-            </div>
-
-            <h3>A4 Frame</h3>
-
-            <p>Perfect handmade A4 frame for gifting and decoration.</p>
-
-            <div class="price">₹499</div>
-
-            <button onclick="orderProduct('A4 Frame', 499)">
-                Order Now 💌
-            </button>
-
-        </div>
-
-
-        <!-- Product 4 -->
-        <div class="product-card">
-
-            <div class="product-image">
-                🖼️
-            </div>
-
-            <h3>A5 Frame</h3>
-
-            <p>Small and cute frame for your special memories.</p>
-
-            <div class="price">₹399</div>
-
-            <button onclick="orderProduct('A5 Frame', 399)">
-                Order Now 💌
-            </button>
-
-        </div>
-
-
-        <!-- Product 5 -->
-        <div class="product-card">
-
-            <div class="product-image">
-                🖼️
-            </div>
-
-            <h3>A6 Frame</h3>
-
-            <p>Compact handmade frame, perfect for gifting.</p>
-
-            <div class="price">₹299</div>
-
-            <button onclick="orderProduct('A6 Frame', 299)">
-                Order Now 💌
-            </button>
-
-        </div>
-
-
-        <!-- Product 6 -->
-        <div class="product-card">
-
-            <div class="product-image">
-                🎁
-            </div>
-
-            <h3>Gift Hamper</h3>
-
-            <p>A beautiful collection of handmade gifts for your loved ones.</p>
-
-            <div class="price">₹599</div>
-
-            <button onclick="orderProduct('Gift Hamper', 599)">
-                Order Now 💌
-            </button>
-
-        </div>
-
-
-        <!-- Product 7 -->
-        <div class="product-card">
-
-            <div class="product-image">
-                🎉
-            </div>
-
-            <h3>Festival Gift Hamper</h3>
-
-            <p>Special handmade hampers for festivals and celebrations.</p>
-
-            <div class="price">₹699</div>
-
-            <button onclick="orderProduct('Festival Gift Hamper', 699)">
-                Order Now 💌
-            </button>
-
-        </div>
-
-
-        <!-- Product 8 -->
-        <div class="product-card">
-
-            <div class="product-image">
-                🏷️
-            </div>
-
-            <h3>Name Slips</h3>
-
-            <p>Beautiful personalized name slips for gifts and occasions.</p>
-
-            <div class="price">₹99</div>
-
-            <button onclick="orderProduct('Name Slips', 99)">
-                Order Now 💌
-            </button>
-
-        </div>
-
-
-        <!-- Product 9 -->
-        <div class="product-card">
-
-            <div class="product-image">
-                💌
-            </div>
-
-            <h3>Sweet Card</h3>
-
-            <p>Cute handmade cards for birthdays and special moments.</p>
-
-            <div class="price">₹149</div>
-
-            <button onclick="orderProduct('Sweet Card', 149)">
-                Order Now 💌
-            </button>
-
-        </div>
-
-    </div>
-
+  </div>
 </section>
 
+<section class="section" id="products">
+  <div class="section-title">
+    <h2>🛍️ Our Products & Services</h2>
+    <p>Tap any product to open its complete page, gallery, description and reviews.</p>
+  </div>
 
-<section id="about" class="about">
+  <div class="filters">
+    <button class="filter active" onclick="filterProducts('all',this)">All</button>
+    <button class="filter" onclick="filterProducts('frames',this)">Frames</button>
+    <button class="filter" onclick="filterProducts('gifts',this)">Gifts</button>
+    <button class="filter" onclick="filterProducts('printing',this)">Printing</button>
+    <button class="filter" onclick="filterProducts('other',this)">Other</button>
+  </div>
 
-    <div class="section-title">
-        <p>About Us</p>
-        <h2>Welcome to Dreamy Designs 🌷</h2>
+  <div class="grid" id="productGrid"></div>
+</section>
+
+<section class="section" id="instagram">
+  <div class="insta-box">
+    <div class="insta-preview">📸</div>
+    <div>
+      <h2>Follow Dreamy Designs on Instagram</h2>
+      <p>Explore more of our latest products, customized works and creative designs on Instagram.</p>
+      <a class="btn" href="https://www.instagram.com/dreamy_design._/" target="_blank" rel="noopener">
+        Explore Our Instagram
+      </a>
     </div>
-
-    <p>
-        Dreamy Designs creates beautiful handmade crafts,
-        personalized gifts and memorable designs.
-        Every product is created with creativity, care and love.
-    </p>
-
+  </div>
 </section>
+</main>
 
-
-<section id="contact" class="contact">
-
-    <h2>Have a Question? 💕</h2>
-
-    <p>Contact us through WhatsApp for orders and enquiries.</p>
-
-    <a href="#" onclick="contactWhatsApp()" class="whatsapp-button">
-        💬 Chat on WhatsApp
-    </a>
-
-</section>
-
-
-<footer>
-
-    <h3>🌸 Dreamy Designs</h3>
-
-    <p>Handmade with Love 💕</p>
-    
-    <div class="instagram-section">
-  <h2>Explore More Products & Works</h2>
-  <p>See our latest designs, products and creative works on Instagram.</p>
-
-  <a href="https://www.instagram.com/dreamy_design._?igsh=ZHM0ZndoYjh1Z3Z1"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="instagram-button">
-    📸 Explore Our Instagram
-  </a>
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <h3>Dreamy Designs</h3>
+      <p>Customized gifts, frames, printing and creative services.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="#products">Products</a></p>
+      <p><a href="#instagram">Instagram</a></p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p><a href="https://www.instagram.com/dreamy_design._/" target="_blank">Instagram</a></p>
+      <p>WhatsApp ordering can be connected here.</p>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Dreamy Designs. All rights reserved.</div>
+</footer>
 </div>
 
-<style>
-.instagram-section {
-  text-align: center;
-  padding: 30px 20px;
+<!-- PRODUCT DETAIL PAGE -->
+<div id="detailPage">
+<header>
+  <nav class="nav">
+    <a href="#" class="logo-wrap" onclick="goHome()">
+      <img src="images/dreamy-logo.png" class="logo" alt="Dreamy Designs logo">
+      <span class="brand">Dreamy Designs</span>
+    </a>
+    <button class="btn secondary" onclick="goHome()">← Back to Products</button>
+  </nav>
+</header>
+
+<main class="detail">
+  <a class="btn secondary back" onclick="goHome()">← Back</a>
+
+  <div class="detail-grid">
+    <div>
+      <div class="gallery-main">
+        <img id="detailMainImage" src="" alt="">
+        <div class="thumbs" id="detailThumbs"></div>
+      </div>
+    </div>
+
+    <div class="detail-info">
+      <h1 id="detailName"></h1>
+      <div class="detail-price" id="detailPrice"></div>
+      <div class="rating" id="detailRating"></div>
+      <p id="detailDescription"></p>
+
+      <div class="order-row">
+        <button class="btn whatsapp" onclick="orderCurrentProduct()">💬 Order on WhatsApp</button>
+        <a class="btn secondary" href="https://www.instagram.com/dreamy_design._/" target="_blank">📸 Instagram</a>
+      </div>
+
+      <div class="review-box">
+        <h3>⭐ Customer Reviews</h3>
+        <div class="review-form">
+          <input id="reviewName" type="text" maxlength="40" placeholder="Your name">
+          <select id="reviewRating">
+            <option value="5">★★★★★ 5/5</option>
+            <option value="4">★★★★☆ 4/5</option>
+            <option value="3">★★★☆☆ 3/5</option>
+            <option value="2">★★☆☆☆ 2/5</option>
+            <option value="1">★☆☆☆☆ 1/5</option>
+          </select>
+          <textarea id="reviewText" maxlength="300" placeholder="Write your review..."></textarea>
+          <button class="btn" onclick="submitReview()">Submit Review</button>
+        </div>
+        <div class="reviews" id="reviewsList"></div>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+
+<script>
+const IMG = "images/";
+
+const products = [
+  {id:"a3",name:"A3 Frame",price:"₹549",cat:"frames",desc:"A beautiful A3 customized frame for photos, memories, artwork and special occasions. Personalize it with your preferred photo or design.",imgs:["a3-1.jpg","a3-2.jpg","a3-3.jpg"]},
+  {id:"a4",name:"A4 Frame",price:"₹419",cat:"frames",desc:"A stylish A4 customized frame suitable for birthdays, anniversaries, gifts and room decoration. Send your preferred photo/design for customization.",imgs:["a4-1.jpg","a4-2.jpg","a4-3.jpg"]},
+  {id:"a5",name:"A5 Frame",price:"₹219",cat:"frames",desc:"Compact A5 customized photo frame, perfect for desks, shelves and personal gifts. Choose your photo and customization.",imgs:["a5-1.jpg","a5-2.jpg"]},
+  {id:"a6",name:"A6 Frame",price:"₹169",cat:"frames",desc:"A small and affordable A6 customized frame for personal memories and simple gifting.",imgs:["a6-1.jpg","a6-2.jpg"]},
+  {id:"mini",name:"Mini Frame",price:"₹129",cat:"frames",desc:"Cute mini customized frame designed for small memorable photos and thoughtful gifts.",imgs:["mini-1.jpg","mini-2.jpg"]},
+  {id:"micro",name:"Microframe",price:"₹109",cat:"frames",desc:"A tiny customized frame that makes a simple and memorable gift. Great for small photos and desk decoration.",imgs:["micro-1.jpg","micro-2.jpg"]},
+  {id:"ring",name:"Ring Album",price:"₹139",cat:"gifts",desc:"A customized ring album for collecting multiple memories in one creative gift. Suitable for birthdays and special occasions.",imgs:["ring-1.jpg","ring-2.jpg","ring-3.jpg"]},
+  {id:"mirror",name:"Magic Mirror",price:"₹629",cat:"gifts",desc:"A creative customized magic mirror gift with a special visual presentation. A unique choice for memorable occasions.",imgs:["mirror-1.jpg","mirror-2.jpg"]},
+  {id:"polaroids",name:"Polaroids",price:"₹5 / piece",cat:"printing",desc:"Customized Polaroid-style photo prints starting from ₹5 per piece. Send your selected photos and customization requirements.",imgs:["polaroid-1.jpg","polaroid-2.jpg"]},
+  {id:"nameslip",name:"Customized Name Slip",price:"₹99",cat:"gifts",desc:"Customized name slips designed for gifts, decorations and personal use. Share the name and preferred design style.",imgs:["nameslip-1.jpg","nameslip-2.jpg"]},
+  {id:"certificate",name:"Certificate Making",price:"₹50",cat:"printing",desc:"Customized certificate designing and making service. Price: ₹50 per certificate. For orders above 10 certificates, the rate is ₹39 per certificate.",imgs:["certificate-1.jpg","certificate-2.jpg"]},
+  {id:"special-a3",name:"Special 100+ Pics A3 Frame",price:"₹669",cat:"frames",desc:"A special A3 frame designed to showcase 100+ pictures in one memorable collage. Ideal for birthdays, anniversaries and large memory collections.",imgs:["special-a3-1.jpg","special-a3-2.jpg","special-a3-3.jpg"]},
+  {id:"cards",name:"Welcome & Visiting Cards",price:"Rate depends on order",cat:"printing",desc:"Customized welcome cards and visiting cards. Pricing depends on quantity, paper, design and finishing requirements. Contact us for a quotation.",imgs:["cards-1.jpg","cards-2.jpg"]},
+  {id:"earrings",name:"Earrings",price:"Affordable rates",cat:"other",desc:"Stylish earrings available at affordable rates. Designs and availability may vary. Contact Dreamy Designs for current collections.",imgs:["earrings-1.jpg","earrings-2.jpg"]},
+  {id:"onam-box",name:"Onam Special Gift Box",price:"₹999",cat:"gifts",desc:"A special Onam gift box prepared for festive gifting. Customization and contents can be discussed before ordering.",imgs:["onam-1.jpg","onam-2.jpg","onam-3.jpg"]},
+  {id:"spiral",name:"Spiral Binding",price:"₹89",cat:"printing",desc:"Spiral binding service for projects, records, assignments and documents. Send your pages and requirements for confirmation.",imgs:["spiral-1.jpg"]},
+  {id:"soft",name:"Soft Binding",price:"₹80",cat:"printing",desc:"Affordable soft binding service for academic projects, assignments and documents.",imgs:["soft-1.jpg"]},
+  {id:"calendar",name:"Customized Calendar",price:"₹150",cat:"gifts",desc:"Customized calendar featuring your selected photos and design. A useful and personal gift for family and friends.",imgs:["calendar-1.jpg","calendar-2.jpg"]},
+  {id:"momentum",name:"Momentum",price:"₹300",cat:"gifts",desc:"Customized momentum/trophy-style gifting option suitable for recognition, appreciation and special occasions.",imgs:["momentum-1.jpg","momentum-2.jpg"]}
+];
+
+const topSellingIds = ["a3","a4","special-a3","mirror","ring","onam-box","calendar"];
+
+function productImage(product){
+  return IMG + product.imgs[0];
 }
 
-.instagram-section h2 {
-  margin-bottom: 10px;
+function renderProducts(filter="all"){
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = "";
+  products.filter(p => filter==="all" || p.cat===filter).forEach(p=>{
+    const reviews = getReviews(p.id);
+    const avg = reviews.length ? (reviews.reduce((a,r)=>a+r.rating,0)/reviews.length).toFixed(1) : "New";
+    const card = document.createElement("article");
+    card.className = "product";
+    card.onclick = () => openProduct(p.id);
+    card.innerHTML = `
+      <img class="product-img" src="${productImage(p)}" alt="${p.name}"
+           onerror="this.src='images/placeholder.jpg'">
+      <div class="product-body">
+        <h3>${p.name}</h3>
+        <div class="price">${p.price}</div>
+        <div class="rating">⭐ ${avg}${reviews.length ? " ("+reviews.length+")" : ""}</div>
+        <div class="small-note">Tap to view details →</div>
+      </div>`;
+    grid.appendChild(card);
+  });
 }
 
-.instagram-section p {
-  margin-bottom: 20px;
-  color: #666;
+function makeSellCard(p){
+  return `
+    <div class="sell-card" onclick="openProduct('${p.id}')">
+      <img src="${productImage(p)}" alt="${p.name}" onerror="this.src='images/placeholder.jpg'">
+      <div class="sell-info"><b>${p.name}</b><span>${p.price}</span></div>
+    </div>`;
 }
 
-.instagram-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #e1306c;
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: 0.3s;
+function renderMarquee(){
+  const items = topSellingIds.map(id=>products.find(p=>p.id===id)).filter(Boolean);
+  const html = items.map(makeSellCard).join("") +
+    `<div class="sell-card">
+      <video autoplay muted loop playsinline poster="images/top-selling-video-poster.jpg">
+        <source src="images/top-selling.mp4" type="video/mp4">
+      </video>
+      <div class="sell-info"><b>Featured Work</b><span>Watch our creations</span></div>
+    </div>`;
+  document.getElementById("marqueeTrack1").innerHTML = html;
+  document.getElementById("marqueeTrack2").innerHTML = html;
 }
 
-.instagram-button:hover {
-  opacity: 0.85;
+function filterProducts(cat,btn){
+  document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");
+  renderProducts(cat);
 }
-</style>
 
-    <p class="copyright">
-        © 2026 Dreamy Designs. All Rights Reserved.
-    </p>
+function openProduct(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  location.hash = "product/"+id;
+  document.getElementById("homePage").style.display="none";
+  document.getElementById("detailPage").style.display="block";
+  document.getElementById("detailName").textContent=p.name;
+  document.getElementById("detailPrice").textContent=p.price;
+  document.getElementById("detailDescription").textContent=p.desc;
 
-</footer>
+  const reviews = getReviews(id);
+  const avg = reviews.length ? (reviews.reduce((a,r)=>a+r.rating,0)/reviews.length).toFixed(1) : "No reviews yet";
+  document.getElementById("detailRating").textContent = reviews.length ? "⭐ "+avg+" / 5 ("+reviews.length+" reviews)" : "⭐ No reviews yet";
 
+  const main = document.getElementById("detailMainImage");
+  main.src=productImage(p); main.alt=p.name;
+  main.onerror=()=>main.src=IMG+"placeholder.jpg";
 
-<script src="script.js"></script>
+  const thumbs=document.getElementById("detailThumbs");
+  thumbs.innerHTML="";
+  p.imgs.forEach((img,i)=>{
+    const t=document.createElement("img");
+    t.className="thumb"+(i===0?" active":"");
+    t.src=IMG+img;
+    t.alt=p.name+" image "+(i+1);
+    t.onerror=()=>t.src=IMG+"placeholder.jpg";
+    t.onclick=()=>{
+      main.src=IMG+img;
+      document.querySelectorAll(".thumb").forEach(x=>x.classList.remove("active"));
+      t.classList.add("active");
+    };
+    thumbs.appendChild(t);
+  });
 
+  window.currentProductId=id;
+  renderReviews(id);
+  window.scrollTo(0,0);
+}
+
+function goHome(){
+  location.hash="";
+  document.getElementById("detailPage").style.display="none";
+  document.getElementById("homePage").style.display="block";
+  window.scrollTo(0,0);
+}
+
+function orderCurrentProduct(){
+  const p=products.find(x=>x.id===window.currentProductId);
+  if(!p)return;
+  const message=`Hello Dreamy Designs! I would like to order: ${p.name}. Price: ${p.price}. Please share the customization/order details.`;
+  // Replace 91XXXXXXXXXX with your actual WhatsApp number.
+  const whatsappNumber="91XXXXXXXXXX";
+  if(whatsappNumber.includes("X")){
+    alert("Please add your Dreamy Designs WhatsApp number in the code first.");
+    return;
+  }
+  window.open("https://wa.me/"+whatsappNumber+"?text="+encodeURIComponent(message),"_blank");
+}
+
+/*
+  REVIEW SYSTEM:
+  Reviews are currently saved in the visitor's browser using localStorage.
+  That means they will NOT automatically appear on other customers' phones.
+  For a real shared review system, connect Firebase/Supabase/backend later.
+*/
+function reviewKey(id){return "dreamy_reviews_"+id}
+function getReviews(id){
+  try{return JSON.parse(localStorage.getItem(reviewKey(id))||"[]")}catch(e){return []}
+}
+function submitReview(){
+  const id=window.currentProductId;
+  const name=document.getElementById("reviewName").value.trim();
+  const text=document.getElementById("reviewText").value.trim();
+  const rating=Number(document.getElementById("reviewRating").value);
+  if(!name || !text){
+    alert("Please enter your name and review.");
+    return;
+  }
+  const reviews=getReviews(id);
+  reviews.unshift({name,text,rating,date:new Date().toLocaleDateString()});
+  localStorage.setItem(reviewKey(id),JSON.stringify(reviews));
+  document.getElementById("reviewName").value="";
+  document.getElementById("reviewText").value="";
+  renderReviews(id);
+  openProduct(id);
+}
+function renderReviews(id){
+  const box=document.getElementById("reviewsList");
+  const reviews=getReviews(id);
+  if(!reviews.length){
+    box.innerHTML='<div class="small-note">No reviews yet. Be the first to review this product!</div>';
+    return;
+  }
+  box.innerHTML=reviews.map(r=>`
+    <div class="review">
+      <strong>${escapeHtml(r.name)}</strong>
+      <div class="review-stars">${"★".repeat(r.rating)}${"☆".repeat(5-r.rating)}</div>
+      <div>${escapeHtml(r.text)}</div>
+      <div class="small-note">${escapeHtml(r.date)}</div>
+    </div>
+  `).join("");
+}
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+}
+
+function handleHash(){
+  const hash=location.hash;
+  if(hash.startsWith("#product/")){
+    openProduct(hash.split("/")[1]);
+  }else{
+    goHome();
+  }
+}
+
+renderProducts();
+renderMarquee();
+handleHash();
+window.addEventListener("hashchange",handleHash);
+</script>
 </body>
 </html>
